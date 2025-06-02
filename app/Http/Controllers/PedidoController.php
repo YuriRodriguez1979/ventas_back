@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 class PedidoController extends Controller
 {
     public function ListarPedidos(){
-
+        $listar = DB::table('pedidos')
+                  ->join('detalle_pedidos', 'pedidos.id', '=', '')
     }
 }
