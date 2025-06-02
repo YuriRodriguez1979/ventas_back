@@ -21,7 +21,7 @@ class TipoCategoriaController extends Controller
         //validando los datos
         $request->validate([
             'categoria' => 'required',
-            "modulo" => "required"
+            "modulo" => "required",
         ]);
 
         //instanciamos el modelo y  cargamos los datos en la variable
@@ -34,6 +34,29 @@ class TipoCategoriaController extends Controller
 
         //emitimos la respuesta
         return response()->json(["mensaje"=> "Tipo de categoria registrado satisfactoriamente"]);
+    }
+
+    /************************************* FIN DEL COLDIGO PARA REGISTRAR TIPOS CATEGORIAS ******************************/
+
+    /************************************** LISTAR REGISTRAR TIPOS CATEGORIAS ***************************************/
+    public function Modificar( Request $request){
+        //validando los datos
+        $request->validate([
+            'categoria' => 'required',
+            "modulo" => "required",
+            'cantidad' => 'required'
+        ]);
+
+        //instanciamos el modelo y  cargamos los datos en la variable
+        $rpt = Tipo_Categoria::find($request->id);
+        $rpt->categoria = $request->catergoria;
+        $rpt->modulo = $request->nodulo;
+
+        //guardamos el tipo_categoria
+        $rpt->update();
+
+        //emitimos la respuesta
+        return response()->json(["mensaje"=> "Tipo de categoria modificada satisfactoriamente"]);
     }
 
     /************************************* FIN DEL COLDIGO PARA REGISTRAR TIPOS CATEGORIAS ******************************/

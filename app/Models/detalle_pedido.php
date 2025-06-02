@@ -10,7 +10,8 @@ class detalle_pedido extends Model
 
     protected $filleable = [
         'idpedido',
-        'idproducto'
+        'idproducto',
+        'cantidad'
     ];
 
     protected $guarded = ['id'];
