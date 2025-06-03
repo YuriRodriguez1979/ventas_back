@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\PedidoController;
 use App\Http\Controllers\Api\ProductoController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\ProveedorController;
@@ -24,9 +25,13 @@ Route::group( ['middleware' => ["auth:sanctum"]], function(){
     Route::get('listar_tipo_categotia', [Tipo_Categoria::class, 'Listar']);
     Route::get('editar_tipo_categoria', [Tipo_Categoria::class, 'Modificar']);
 
-    //rutas protegidas para prodcutos
+    //rutas protegidas para productos
     Route::get('listar_productos', [ProductoController::class, 'ListarProductos']);
 
+
+    //rutas protegidas para pedidos
+    Route::get('ListarPedidos', [PedidoController::class, 'ListarPedidos']);
+    
 });
 
 
