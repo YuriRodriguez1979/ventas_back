@@ -4,7 +4,8 @@ use App\Http\Controllers\Api\PedidoController;
 use App\Http\Controllers\Api\ProductoController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\ProveedorController;
-use App\Models\Tipo_Categoria;
+use App\Http\Controllers\Api\TipoCategoriaController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,9 +22,9 @@ Route::group( ['middleware' => ["auth:sanctum"]], function(){
     Route::put('editar_proveedor', [ProveedorController::class, 'Editar']);
 
     //rutas protegidas de tipo_categoria
-    Route::post('crear_tipo_categoria', [Tipo_Categoria::class, 'Registrar']);
-    Route::get('listar_tipo_categotia', [Tipo_Categoria::class, 'Listar']);
-    Route::get('editar_tipo_categoria', [Tipo_Categoria::class, 'Modificar']);
+    Route::post('crear_tipo_categoria', [TipoCategoriaController::class, 'Registrar']);
+    Route::get('listar_tipo_categotia', [TipoCategoriaController::class, 'Listar']);
+    Route::put('editar_tipo_categoria', [TipoCategoriaController::class, 'Modificar']);
 
     //rutas protegidas para productos
     Route::get('listar_productos', [ProductoController::class, 'ListarProductos']);
@@ -31,6 +32,7 @@ Route::group( ['middleware' => ["auth:sanctum"]], function(){
 
     //rutas protegidas para pedidos
     Route::get('ListarPedidos', [PedidoController::class, 'ListarPedidos']);
+    Route::post('registrar_pedidos', [PedidoController::class, 'RegistrarPedidos']);
     
 });
 

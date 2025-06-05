@@ -26,8 +26,8 @@ class TipoCategoriaController extends Controller
 
         //instanciamos el modelo y  cargamos los datos en la variable
         $rpt = new Tipo_Categoria();
-        $rpt->categoria = $request->catergoria;
-        $rpt->modulo = $request->nodulo;
+        $rpt->categoria = strtoupper($request->categoria);
+        $rpt->modulo = strtoupper($request->modulo);
 
         //guardamos el tipo_categoria
         $rpt->save();
@@ -43,14 +43,13 @@ class TipoCategoriaController extends Controller
         //validando los datos
         $request->validate([
             'categoria' => 'required',
-            "modulo" => "required",
-            'cantidad' => 'required'
+            "modulo" => "required"
         ]);
 
         //instanciamos el modelo y  cargamos los datos en la variable
         $rpt = Tipo_Categoria::find($request->id);
-        $rpt->categoria = $request->catergoria;
-        $rpt->modulo = $request->nodulo;
+        $rpt->categoria = strtoupper($request->categoria);
+        $rpt->modulo = strtoupper($request->modulo);
 
         //guardamos el tipo_categoria
         $rpt->update();

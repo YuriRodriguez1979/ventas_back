@@ -15,4 +15,6 @@ class Tipo_Categoria extends Model
 
     protected $guarded = ['id'];
     protected $primaryKey = 'id';
+
+    public $timestamps = false;
 }
